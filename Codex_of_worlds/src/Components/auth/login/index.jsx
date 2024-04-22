@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { signInWithEmailAndPassword, signInWithGoogle } from '../../../Firebase/auth'; // Correct import statements
+import { signInWithEmailAndPassword } from 'firebase/auth'; // Correct import statements
+import { doSigninWithGoogle } from '../../../Firebase';
 import { useAuth } from '../../../contexts/authContext';
+import { auth } from '../../../Firebase/Firebase';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -28,7 +30,7 @@ const Login = () => {
         if (!isSigningIn) {
             setIsSigningIn(true);
             try {
-                await signInWithGoogle();
+                await doSigninWithGoogle();
             } catch (error) {
                 setError(error.message);
             } finally {

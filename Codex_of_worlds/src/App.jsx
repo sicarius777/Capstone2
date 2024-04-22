@@ -1,5 +1,8 @@
+import React from 'react';
 import { useState } from 'react';
 import { AuthContext } from './contexts/authContext';
+import { useAuth } from './contexts/authContext'; // Assuming useAuth is defined in authContext.js
+import { Navigate } from 'react-router-dom'; // Adjust import path if needed
 
 import Login from './Components/auth/login/index'; // Update the path to your Login component
 
@@ -14,5 +17,4 @@ function App() {
   // Render the Login component if user is not logged in
   return <Login />;
 }
-
 export default App;
